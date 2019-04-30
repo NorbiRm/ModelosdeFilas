@@ -34,7 +34,6 @@ public class MMS {
         double numerador = 1.0;
         double denominador = sumatoriaP0(s - 1) + ((Math.pow((double)lambda /(double) miu, s) / factorial(s)) * (1.0 / (1.0 - ((double)lambda / (double) (s * miu)))));
         return numerador/denominador;
-        // return 0.5;
     }
 
     public double sumatoriaP0(int n){
@@ -51,7 +50,13 @@ public class MMS {
     }
 
     private double calculatePn(int n) {
-        return Math.pow(p,n);
+        double result;
+        if(n>=0 && n<s){
+            result = (Math.pow((double)lambda/(double)miu,n)/factorial(n))*p0;
+        }else{
+            result = (Math.pow((double)lambda/(double)miu,n)/(factorial(n)*Math.pow(s,n-s)))*p0;
+        }
+        return result;
     }
 
     private double calculateL() {
@@ -77,8 +82,15 @@ public class MMS {
         return wq;
     }
 
-    private double calculateCn() {
-        return 0.0;
+    private double calculateCn(int n) {
+       double result;
+       if(n<(s-1)){
+           result = Math.pow((double)lambda/(double)miu,n)/factorial(n);
+       }else{
+           result = Math.pow((double)lambda/(double)miu,n)/(factorial(n)*Math.pow(s,n-s));
+       }
+
+       return result;
     }
 
     private double factorial(int num){
