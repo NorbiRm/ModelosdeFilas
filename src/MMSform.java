@@ -20,8 +20,15 @@ public class MMSform {
         calcularButton.addActionListener(actionEvent -> {
             tpResult.setText("");
             Result="";
-            getResult();
+            try{
+                getResult();
+            }
+            catch(Exception e) {
+                JOptionPane.showMessageDialog(null, "llena todos los campos");
+            }
         });
+        tfCw.setText("0.0");
+        tfCs.setText("0.0");
     }
 
     public void getResult(){

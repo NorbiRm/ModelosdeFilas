@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ModelosdeFilas:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ModelosdeFilas_jar</output-path>
+    <root id="archive" name="ModelosdeFilas.jar">
+      <element id="module-output" name="ModelosdeFilas" />
+    </root>
+  </artifact>
+</component>

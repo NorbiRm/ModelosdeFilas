@@ -43,7 +43,7 @@ public class MD1 {
     }
 
 
-    private double calculateCt(double cw, double cs){
+    public double calculateCt(double cw, double cs){
         double result;
         result = (lq*cw)+(1.0*cs);
         return result;

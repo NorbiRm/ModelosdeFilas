@@ -82,8 +82,8 @@
       </component>
       <component id="33bf0" class="javax.swing.JTextPane" binding="tpResult">
         <constraints>
-          <grid row="0" column="3" row-span="6" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
+          <grid row="0" column="3" row-span="8" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="500" height="500"/>
           </grid>
         </constraints>
         <properties/>
