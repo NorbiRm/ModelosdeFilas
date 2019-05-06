@@ -1,4 +1,4 @@
-mport java.math.*;
+import java.math.*;
 
 public class MMSK {
     private int s;
@@ -12,14 +12,15 @@ public class MMSK {
     private double l;
     private double wq;
     private double w;
+    private double ct;
 
 
     public MMSK(){
         s = 2;
         lambda = miu = k = 0;
-        p = p0 = pn = lq = l = wq = w = 0.0;
+        p = p0 = pn = lq = l = wq = w = ct = 0.0;
     }
-    public MMSK(int s, int lambda, int miu, int n, int k){
+    public MMSK(int s, int lambda, int miu, int n, int k, double cw, double cs){
         this.s =  s;
         this.lambda = lambda;
         this.miu = miu;
@@ -31,12 +32,19 @@ public class MMSK {
         this.wq =calculateWq();
         this.w = calculateW();
         this.k = k;
+        this.ct = (cw == 0.0 && cs == 0.0) ? 0.0 : calculateCt(cw, cs);
     }
 
     private double calculateP0() {
         double numerador = 1.0;
         double denominador = sumatoriaP0(s) + ((Math.pow((double)lambda /(double) miu, s) / factorial(s)) * sumatoria2P0(k,s));
         return numerador/denominador;
+    }
+
+    private double calculateCt(double cw, double cs){
+        double result;
+        result = (getLq()*cw) + ((double)getS()*cs);
+        return result;
     }
 
     public double sumatoriaP0(int n){
@@ -61,7 +69,7 @@ public class MMSK {
     }
 
     private double calculatePn(int n) {
-        double result;
+        double result = 0.0;
         if(n>=0 && n<=s && n<k){
             result = (Math.pow((double)lambda/(double)miu,n)/factorial(n))*p0;
         }else{
@@ -107,7 +115,7 @@ public class MMSK {
     }
 
     private double calculateCn(int n) {
-       double result;
+       double result = 0.0;
        if(n<s && n<k){
            result = Math.pow((double)lambda/(double)miu,n)/factorial(n);
        }else{
@@ -207,6 +215,14 @@ public class MMSK {
 
     public void setW(double w) {
         this.w = w;
+    }
+
+    public double getCt() {
+        return ct;
+    }
+
+    public void setCt(double ct) {
+        this.ct = ct;
     }
 
 

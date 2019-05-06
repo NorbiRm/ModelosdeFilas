@@ -8,8 +8,9 @@ public class MM1 {
     private double w;
     private double p0;
     private double pn;
+    private double ct;
 
-    public MM1(double lambda, double miu, int n) {
+    public MM1(double lambda, double miu, int n, double cw, double cs) {
         this.lambda = lambda;
         this.miu = miu;
         this.p = calculateP();
@@ -19,11 +20,18 @@ public class MM1 {
         this.l = calculateL();
         this.wq = calculateWq();
         this.w = calculateW();
+        this.ct = (cw == 0.0 && cs == 0.0) ? 0.0 : calculateCt(cw, cs);
+
     }
     public MM1(){
 
     }
-
+    //Costo total de servicio
+    private double calculateCt(double cw, double cs){
+        double result;
+        result = (getLq()*cw)+(1.0*cs);
+        return result;
+    }
 
     //Probabilidad sistema desocupado
     public double calculateP0(){
@@ -140,4 +148,13 @@ public class MM1 {
     public void setPn(double pn) {
         this.pn = pn;
     }
+
+    public double getCt() {
+        return ct;
+    }
+
+    public void setCt(double ct) {
+        this.ct = ct;
+    }
+
 }
