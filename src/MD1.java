@@ -42,4 +42,11 @@ public class MD1 {
         pn=Math.pow(p,n)*p0;
     }
 
+
+    private double calculateCt(double cw, double cs){
+        double result;
+        result = (lq*cw)+(1.0*cs);
+        return result;
+    }
+
 }
